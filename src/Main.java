@@ -6,6 +6,7 @@ import gui.elements.interfaces.ICheckbox;
 import gui.factory.DarkUIElementFactory;
 import gui.factory.IUIElementFactory;
 import gui.factory.LightUIElementFactory;
+import gui.factory.UIElementFactoryProducer;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,8 +31,8 @@ public class Main {
         String screen1 = "Main screen";
         String screen2 = "Settings screen";
 
-        IUIElementFactory lightFactory = new LightUIElementFactory();
-        IUIElementFactory darkFactory = new DarkUIElementFactory();
+        IUIElementFactory lightFactory = UIElementFactoryProducer.getFactory("LIGHT");
+        IUIElementFactory darkFactory = UIElementFactoryProducer.getFactory("DARK");
 
         IButton lightButton = lightFactory.createButton(screen1, 100, 50);
         IButton darkButton = darkFactory.createButton(screen1, 200, 100);
